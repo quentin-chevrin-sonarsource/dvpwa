@@ -11,7 +11,7 @@ Python with as many vulnerabilities as possible while having a good design and
 intentions.
 
 This project was used as demonstration of vulnerabilities during my
-`Web vulnerabilities`_ presentation at EVO Summer Python Lab'17.
+`Web vulnerabilities`_ presentation at EVO Summer Python Lab'18.
 
 Running
 =======
