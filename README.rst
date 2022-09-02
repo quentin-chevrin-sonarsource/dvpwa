@@ -13,6 +13,9 @@ intentions.
 This project was used as demonstration of vulnerabilities during my
 `Web vulnerabilities`_ presentation at EVO Summer Python Lab'18.
 
+Make it fail
+Make it fail
+
 Running
 =======
 
