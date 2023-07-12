@@ -28,7 +28,7 @@ Actions:
           with:
             args: >
               -Dsonar.organization=quentin-chevrin-sonarsource \
-              -Dsonar.projectKey=quentin-chevrin-sonarsource_gradle-project \
+              -Dsonar.projectKey=quentin-chevrin-sonarsource_dvpwa \
               -Dsonar.sources=. \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.exclusions=venv/** \
