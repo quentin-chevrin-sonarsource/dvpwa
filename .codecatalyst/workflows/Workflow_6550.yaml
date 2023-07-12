@@ -1,0 +1,43 @@
+Name: Workflow_6550
+SchemaVersion: "1.0"
+
+# Optional - Set automatic triggers.
+Triggers:
+  - Type: Push
+    Branches:
+      - master
+
+# Required - Define action configurations.
+Actions:
+  GitHubActions_fa:
+    # Identifies the action. Do not modify this value.
+    Identifier: aws/github-actions-runner@v1.0.0
+    # Specifies the source and/or artifacts to pass to the action as input.
+    Inputs:
+      # Optional
+      Sources:
+        - WorkflowSource # This specifies that the action requires this Workflow as a source
+    # Defines the action's properties.
+    Configuration:
+      # Required - Steps are sequential instructions that run shell commands
+      Steps:
+        - name: Hello_world_action
+          uses: actions/hello-world-javascript-action@v1.1
+          with:
+            who-to-greet: Mona the Octocat
+        - name: Install Python dependencies
+          run: env;  git status;     git branch
+        - name: SonarCloud Scan
+          uses: SonarSource/sonarcloud-github-action@master
+          env:
+            SONAR_TOKEN: ${Secrets.SONAR_TOKEN}
+          with:
+            args: >
+              -Dsonar.organization=florian-thoni-sonarsource
+              -Dsonar.projectKey=florian-thoni-sonarsource_test
+              -Dsonar.sources=.
+              -Dsonar.host.url=https://sonarcloud.io
+              -Dsonar.exclusions=venv/**
+              -Dsonar.branch.name=${WorkflowSource.BranchName}
+    Compute:
+      Type: EC2
